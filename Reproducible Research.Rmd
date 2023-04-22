@@ -8,26 +8,6 @@ date: "2023-04-20"
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
-
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
-```
-
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
-
 
 > knitr::opts_chunk$set(echo = TRUE)
 > library(ggplot2)
@@ -69,11 +49,12 @@ Note that the `echo = FALSE` parameter was added to the code chunk to prevent pr
 > newdata1 <- merge(nadata, stepsAvg, by=c("interval", "day"))
 > View(newdata1)
 
+
+
 > cleanData <- fullData [!is.na(fullData$steps),]
 > newdata2 <- newdata1[,c(5,4,1,2)]
 > colnames(newdata2) <- c("steps", "date", "interval", "day")
 > mergeData <- rbind (cleanData, newdata2)
-
 
 
 
@@ -94,4 +75,3 @@ Note that the `echo = FALSE` parameter was added to the code chunk to prevent pr
 > j <- ggplot (stepsPerIntervalDT, aes(x=interval, y=steps))
 > j + geom_line()+ labs(title = " Time Series Plot of Average Steps per Interval: weekdays vs. weekends", x = "Interval", y = "Average Number of Steps") + facet_grid(DayType ~ .)
 
-> echo = TRUE
